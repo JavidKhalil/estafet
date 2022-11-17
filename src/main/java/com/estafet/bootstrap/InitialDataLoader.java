@@ -30,14 +30,19 @@ public class InitialDataLoader {
         estafet.setTasks(taskSet);
         Task wakeup = new Task("Wake up", "Should do it fast", false, estafet);
         taskSet.add(wakeup);
+        taskService.createTask(wakeup);
         Task makeaBf = new Task("Prepare a tea", "Be carefull with a pot", false, estafet);
         taskSet.add(makeaBf);
+        taskService.createTask(makeaBf);
         Task goToWork = new Task("Go to work", "Prepare report", false, estafet);
         taskSet.add(goToWork);
+        taskService.createTask(goToWork);
         Task makeSpeech = new Task("Make a speech", "Read latest news, before", false, estafet);
         taskSet.add(makeSpeech);
+        taskService.createTask(makeSpeech);
         Task takeTaxi = new Task("The way to home", "Met the friends", false, estafet);
         taskSet.add(takeTaxi);
+        taskService.createTask(takeTaxi);
         customerRepository.saveAndFlush(estafet);
 
     }

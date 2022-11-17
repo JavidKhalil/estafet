@@ -7,7 +7,6 @@ import com.estafet.repository.CustomerRepository;
 import com.estafet.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -67,7 +66,6 @@ public class TaskService {
      * @param task
      * @throws TaskProceedingGenericException
      */
-    @Transactional
     public void updateTask(Task task) throws TaskProceedingGenericException {
         Customer customer = task.getCustomer();
         if(customer != null){
@@ -77,7 +75,6 @@ public class TaskService {
             throw new TaskProceedingGenericException("You try to save a task without specifying Customer " +
                     "add one, please");
         }
-
     }
 
 }

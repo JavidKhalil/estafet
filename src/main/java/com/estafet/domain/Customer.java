@@ -1,34 +1,20 @@
 package com.estafet.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.Cascade;
-import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
 import java.sql.Date;
 import java.util.*;
 
-@Entity
-@Table(name = "customer")
 public class Customer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "created")
     private Date created;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @Column(name = "tasks", nullable = true)
     @JsonIgnore
     private Set<Task> tasks;
 
